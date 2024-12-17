@@ -31,11 +31,7 @@ jobs:
           enable-cache: true
 
       - name: Check style
-        run: |
-          set -e
-
-          uvx ruff check --fix
-          uvx ruff format
+        run: uvx ruff check
 
       - name: Run tests
         env:
