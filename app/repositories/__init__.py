@@ -3,8 +3,19 @@ from .borrow import BorrowRepository
 from .user import UserRepository
 
 
-# A single data store instance shared across repositories
 class DataStore:
+    """
+    In-memory data store for the application.
+
+    Attributes:
+        users (dict): Stores User entities.
+        books (dict): Stores Book entities.
+        borrow_records (dict): Stores BorrowRecord entities.
+        user_id_seq (int): Sequence counter for user IDs.
+        book_id_seq (int): Sequence counter for book IDs.
+        borrow_id_seq (int): Sequence counter for borrow record IDs.
+    """
+
     def __init__(self):
         self.users = {}
         self.books = {}
@@ -14,6 +25,7 @@ class DataStore:
         self.borrow_id_seq = 1
 
 
+# Initialize the in-memory data store
 data_store = DataStore()
 
 # Initialize repositories with shared data store
