@@ -1,6 +1,7 @@
-from fastapi import FastAPI
-import platform
 import datetime
+import platform
+
+from fastapi import FastAPI
 
 app = FastAPI(
     title="E-Library API System",
