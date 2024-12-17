@@ -55,7 +55,9 @@ class BookRepository:
         """
         book = self.get_book(book_id)
         if book:
-            updated_data = book.model_copy(update=book_update.model_dump(exclude_unset=True))
+            updated_data = book.model_copy(
+                update=book_update.model_dump(exclude_unset=True)
+            )
             self.data_store.books[book_id] = updated_data
             return updated_data
         return None

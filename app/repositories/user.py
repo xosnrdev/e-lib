@@ -55,7 +55,9 @@ class UserRepository:
         """
         user = self.get_user(user_id)
         if user:
-            updated_data = user.model_copy(update=user_update.model_dump(exclude_unset=True))
+            updated_data = user.model_copy(
+                update=user_update.model_dump(exclude_unset=True)
+            )
             self.data_store.users[user_id] = updated_data
             return updated_data
         return None

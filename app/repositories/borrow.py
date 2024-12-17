@@ -37,7 +37,9 @@ class BorrowRepository:
                 book_id=book_id,
                 borrow_date=date.today(),
             )
-            self.data_store.borrow_records[self.data_store.borrow_id_seq] = borrow_record
+            self.data_store.borrow_records[self.data_store.borrow_id_seq] = (
+                borrow_record
+            )
             self.data_store.borrow_id_seq += 1
 
             # Update book availability
@@ -91,10 +93,14 @@ class BorrowRepository:
             List[BorrowRecord]: A list of borrow records for the user.
         """
         return [
-            record for record in self.data_store.borrow_records.values() if record.user_id == user_id
+            record
+            for record in self.data_store.borrow_records.values()
+            if record.user_id == user_id
         ]
 
-    def get_active_borrow_record(self, user_id: int, book_id: int) -> BorrowRecord | None:
+    def get_active_borrow_record(
+        self, user_id: int, book_id: int
+    ) -> BorrowRecord | None:
         """
         Checks if a user has an active borrow record for a specific book.
 

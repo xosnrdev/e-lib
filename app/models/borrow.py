@@ -11,6 +11,7 @@ class BorrowRecordBase(BaseModel):
         user_id (int): ID of the user who borrowed the book.
         book_id (int): ID of the borrowed book.
     """
+
     user_id: int = Field(..., json_schema_extra={"example": 1})
     book_id: int = Field(..., json_schema_extra={"example": 1})
 
@@ -21,6 +22,7 @@ class BorrowRecordCreate(BorrowRecordBase):
     """
     Model for creating a new BorrowRecord.
     """
+
     pass
 
 
@@ -33,6 +35,7 @@ class BorrowRecord(BorrowRecordBase):
         borrow_date (date): Date when the book was borrowed.
         return_date (date | None): Date when the book was returned.
     """
+
     id: int
     borrow_date: date
     return_date: date | None = None
