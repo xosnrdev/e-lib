@@ -28,3 +28,7 @@ select = [
     "UP",  # pyupgrade
     "ARG001", # unused arguments in functions
 ]
+
+ignore = [
+    "E501",  # line too long, handled by black
+]
