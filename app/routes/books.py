@@ -4,7 +4,7 @@ from app.models.book import Book, BookCreate, BookUpdate
 from app.repositories import book_repository
 
 # Initialize repository with data_store from app.main
-router = APIRouter(prefix="/books", tags=["Books"])
+router = APIRouter(prefix="/books", tags=["Book Endpoints"])
 
 
 @router.post("/", response_model=Book, status_code=status.HTTP_201_CREATED)
